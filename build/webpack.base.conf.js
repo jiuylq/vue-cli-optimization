@@ -38,6 +38,7 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  externals: {}, // 使用import语法来引入cdn加载的第三方库
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
