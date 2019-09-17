@@ -1,0 +1,20 @@
+{
+  "beautify.language": {
+    "js": {
+      "type": ["javascript", "json"],
+      "filename": [".jshintrc", ".jsbeautifyrc"]
+    },
+    "css": ["css", "scss"],
+    "html": ["htm", "html"]
+  },
+  "beautify.ignore": "",
+  "brace_style": "none,preserve-inline",
+  "indent_size": 2,
+  "indent_char": " ",
+  "css": {
+    "indent_size": 2
+  },
+  "space_after_anon_function": false,
+  "space_after_named_function": false,
+  "unformatted": []
+}
