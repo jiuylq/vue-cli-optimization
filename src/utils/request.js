@@ -68,4 +68,24 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+export default {
+  request: service,
+  // 以下封装了一些常用的请求
+  // get请求加上时间戳参数，避免从缓存中拿数据
+  get (url, param) {
+    if (param !== undefined) {
+      Object.assign(param, {_t: (new Date()).getTime()})
+    } else {
+      param = {_t: (new Date()).getTime()}
+    }
+    return service({method: 'get', url, params: param})
+  },
+  getData (url, param) {
+    return service({method: 'get', url, params: param})
+  },
+  post (url, param, config) {
+    return service.post(url, param, config)
+  },
+  put: service.put,
+  _delete: service.delete
+}
