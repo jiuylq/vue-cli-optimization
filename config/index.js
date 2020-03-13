@@ -44,7 +44,7 @@ module.exports = {
     // 直接通过link标签或script标签加载的CDN文件链接
     cdn: {
       css: [ ],
-      js: [ ]
+      js: []
     }
   },
 
