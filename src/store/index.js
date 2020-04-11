@@ -5,7 +5,7 @@ import state from './state' // 根级别的 mutations
 import mutations from './mutations' // 根级别的 mutations
 import actions from './actions' // 根级别的 action
 import getters from './getters' // 根级别的 getters
-import modules from './modules'  // 模块
+import modules from './modules' // 模块
 
 Vue.use(Vuex)
 

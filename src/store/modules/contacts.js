@@ -1,4 +1,4 @@
-import { getContactsList } from '@/api'
+// import { getContactsList } from '@/api'
 export default {
   namespaced: true,
   state: {
@@ -11,9 +11,9 @@ export default {
   },
   actions: {
     getList ({commit}) {
-      return getContactsList().then((res) => {
-        commit('updateList', res.data)
-      })
+      // return getContactsList().then((res) => {
+      //   commit('updateList', res.data)
+      // })
     }
   },
   getters: {
