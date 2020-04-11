@@ -257,6 +257,44 @@ npx babel-upgrade --write --install
    entry: ['@babel/polyfill', 'main.js']
    ```
 
+### 4 vue jest
+
+运行单元测试还需要升级相关jest包
+
+```
+yarn add babel-jest@latest -D
+
+yarn add jest@latest -D
+
+yarn add jest-serializer-vue@latest -D
+
+yarn add vue-jest@ -D
+```
+
+问题1： `Option “mapCoverage” has been removed, as it’s no longer necessary`
+
+原因：此属性已移除，详细可以见 https://jestjs.io/docs/en/configuration 官方公布的属性，
+解决方法：在test/unit/jest.conf.js找到并删除该属性
+
+```
+snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
+setupFiles: ['<rootDir>/test/unit/setup'],
+// mapCoverage: true,
+coverageDirectory: '<rootDir>/test/unit/coverage',
+```
+
+问题2：`localStorage is not available for opaque origins`
+
+解决：在jest.config.js里，增加这两个属性定义
+
+```
+module.exports = {
+  verbose: true,
+  testURL: "http://localhost/",
+  ...
+}
+可参考https://stackoverflow.com/questions/51554366/jest-securityerror-localstorage-is-not-available-for-opaque-origins#
+```
 
 
 参考：
@@ -278,5 +316,7 @@ npx babel-upgrade --write --install
 [基于vue-cli2.0，webpack3升级为webpack4的踩坑之旅以及优化]( https://www.jianshu.com/p/879517859fc3 )
 
 [在vue-cli的基础上升级webpack4]( https://www.jianshu.com/p/540e7924af1f )
+
+[vue jest运行报错及解决方案](https://blog.csdn.net/IMFaust/article/details/93000117)
 
 [webpack官网]( https://webpack.docschina.org/ )
